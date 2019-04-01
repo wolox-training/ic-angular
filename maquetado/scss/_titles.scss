@@ -1,0 +1,24 @@
+@import 'colors';
+
+.title {
+  color: $black;
+  font-size: 25px;
+  height: 100px;
+  max-height: 100%;
+  min-width: 75px;
+  padding: 38px 56px;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    background: url(assets/triangle.svg);
+    content: '';
+    display: block;
+    height: 100px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 75px;
+    z-index: -1;
+  }
+}
