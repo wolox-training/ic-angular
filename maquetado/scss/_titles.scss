@@ -1,24 +1,26 @@
 @import 'colors';
 
-.title {
+$tech-logo-size: 75px;
+$title-decoration-height: 100px;
+
+.text-big {
   color: $black;
   font-size: 25px;
-  height: 100px;
-  max-height: 100%;
+  height: $title-decoration-height;
   min-width: 75px;
-  padding: 38px 56px;
+  padding: 40px 55px;
   position: relative;
   width: 100%;
 
   &::before {
-    background: url(assets/triangle.svg);
+    background-image: url(assets/triangle.svg);
     content: '';
     display: block;
-    height: 100px;
-    left: 0px;
+    height: 100%;
+    left: 0;
     position: absolute;
-    top: 0px;
-    width: 75px;
+    top: 0;
+    width: $tech-logo-size;
     z-index: -1;
   }
 }
