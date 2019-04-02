@@ -1,5 +1,6 @@
 @import 'colors';
 @import 'variables';
+@import 'mixins';
 
 .tech-card {
   align-items: center;
@@ -20,8 +21,14 @@
     left: -10px;
     position: absolute;
     top: -10px;
+    @include transition(top .2s, left .2s); /* Imported from mixins */
     width: 100%;
     z-index: -1;
+  }
+
+  &:hover::before {
+    top: 10px;
+    left: 10px;
   }
 
   &-logo {
