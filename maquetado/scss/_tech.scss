@@ -1,0 +1,47 @@
+@import 'colors';
+@import 'variables';
+
+.tech-card {
+  align-items: center;
+  background-color: $tacha;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px 30px;
+  position: relative;
+  width: $tech-card-size;
+
+  &::before {
+    border: 1px solid $tacha;
+    border-radius: inherit;
+    content: '';
+    height: 100%;
+    left: -10px;
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &-logo {
+    height: $tech-card-icon-size;
+    margin-bottom: 10px;
+    overflow: hidden;
+    width: $tech-card-icon-size;
+  }
+
+  &-name {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  &-release {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  &-description {
+    text-align: center;
+  }
+}
