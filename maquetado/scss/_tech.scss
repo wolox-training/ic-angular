@@ -3,7 +3,7 @@
 
 .tech-card {
   align-items: center;
-  background-color: $tacha;
+  background-color: $green;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@
   width: $tech-card-size;
 
   &::before {
-    border: 1px solid $tacha;
+    border: 1px solid $green;
     border-radius: inherit;
     content: '';
     height: 100%;
@@ -27,12 +27,11 @@
   &-logo {
     height: $tech-card-icon-size;
     margin-bottom: 10px;
-    overflow: hidden;
     width: $tech-card-icon-size;
   }
 
   &-name {
-    font-size: 16px;
+    font-size: $text-medium;
     margin-bottom: 10px;
   }
 
