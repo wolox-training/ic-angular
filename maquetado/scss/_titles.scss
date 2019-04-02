@@ -1,0 +1,23 @@
+@import 'colors';
+@import 'variables';
+
+.title {
+  color: $black;
+  font-size: $text-big;
+  height: $title-decoration-height;
+  padding: 40px 55px;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    background-image: url(assets/triangle.svg);
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: $tech-logo-size;
+    z-index: -1;
+  }
+}
