@@ -1,13 +1,10 @@
 @import 'colors';
-
-$tech-logo-size: 75px;
-$title-decoration-height: 100px;
+@import 'variables';
 
 .text-big {
   color: $black;
-  font-size: 25px;
+  font-size: $text-big;
   height: $title-decoration-height;
-  min-width: 75px;
   padding: 40px 55px;
   position: relative;
   width: 100%;
