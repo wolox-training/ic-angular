@@ -10,7 +10,7 @@
   width: 100%;
 
   &::before {
-    background-image: url(assets/triangle.svg);
+    background-image: url(#{$assets_path}/triangle.svg);
     content: '';
     display: block;
     height: 100%;
