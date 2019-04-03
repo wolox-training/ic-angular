@@ -1,8 +1,15 @@
+/* CSS Reset */
 @import 'equalizer';
+
+/* Constants */
+@import 'colors';
+@import 'variables';
+
+/* Content */
 @import 'navbar';
 @import 'titles';
 @import 'tech';
-@import 'variables';
+
 
 .main-content {
   margin: $nav-height auto 0;

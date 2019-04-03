@@ -1,16 +1,15 @@
-@import 'colors';
-@import 'variables';
-
 .nav-bar {
   align-items: center;
   background-color: $white;
+  box-shadow: 0 5px 5px rgba($light_gray, 0.75);
   display: flex;
-  height: $nav-height; 
+  height: $nav-height;
+  justify-content: space-between;
   padding: 0 25px;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 9999;
+  z-index: 1;
 
   &-logo {
     height: $nav-logo-height;
@@ -19,6 +18,5 @@
 
   &-brand {
     font-size: $text-big;
-    margin-left: auto;
   }
 }
