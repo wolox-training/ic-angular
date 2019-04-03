@@ -1,0 +1,27 @@
+.footer {
+  align-items: center;
+  background-color: $blue;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+
+  &-copyright {
+    align-self: flex-end;
+    color: inherit;
+    font-size: $text-small;
+  }
+
+  &-logo {
+    height: 60px;
+    margin-bottom: 10px;
+    width: auto;
+  }
+
+  &-slogan {
+    color: inherit;
+    font-size: $text-big;
+    margin: 20px 0;
+  }
+}
