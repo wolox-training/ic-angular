@@ -1,9 +1,12 @@
 @import 'equalizer';
+@import 'navbar';
 @import 'titles';
 @import 'tech';
+@import 'variables';
 
 .main-content {
-  margin: 0 auto;
+  margin: $nav-height auto 0;
   max-width: 100%;
+  padding: 20px;
   width: 1200px;
 }

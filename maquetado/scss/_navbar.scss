@@ -1,0 +1,24 @@
+@import 'colors';
+@import 'variables';
+
+.nav-bar {
+  align-items: center;
+  background-color: $white;
+  display: flex;
+  height: $nav-height; 
+  padding: 0 25px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+
+  &-logo {
+    height: $nav-logo-height;
+    width: auto;
+  }
+
+  &-brand {
+    font-size: $text-big;
+    margin-left: auto;
+  }
+}
