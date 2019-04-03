@@ -7,7 +7,7 @@
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  margin: 15px;
   padding: 20px 30px;
   position: relative;
   width: $tech-card-size;
@@ -43,4 +43,11 @@
   &-description {
     text-align: center;
   }
+}
+
+.tech-card-container {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto 80px;
+  width: 90%;
 }
