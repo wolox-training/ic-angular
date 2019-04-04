@@ -1,9 +1,19 @@
+/* CSS Reset */
 @import 'equalizer';
+
+/* Constants */
+@import 'colors';
+@import 'variables';
+
+/* Content */
+@import 'navbar';
 @import 'titles';
 @import 'tech';
 
+
 .main-content {
-  margin: 0 auto;
+  margin: $nav-height auto 0;
   max-width: 100%;
+  padding: 20px;
   width: 1200px;
 }
