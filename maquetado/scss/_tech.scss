@@ -7,6 +7,19 @@
   position: relative;
   width: $tech-card-size;
 
+  &:first-child {
+    justify-content: center;
+    grid-row: 1 / span 9999;
+
+    &::before {
+      border: 1px solid $green;
+      content: '';
+      height: 100%;
+      right: 0;
+      position: absolute;
+    }
+  }
+
   &-logo {
     height: $tech-card-icon-size;
     margin-bottom: 10px;
@@ -30,22 +43,8 @@
 
 .tech-card-container {
   display: grid;
-  grid-template: [top-limit] auto auto [bottom-limit]/ max-content max-content max-content;
+  grid-template-columns: repeat(3, max-content);
   justify-content: center;
   margin: 0 auto 80px;
   width: 90%;
-}
-
-
-.tech-card.tech-card-main {
-  justify-content: center;
-  grid-row: top-limit / bottom-limit;
-
-  &::before {
-    border: 1px solid $green;
-    content: '';
-    height: 100%;
-    right: 0;
-    position: absolute;
-  }
 }
