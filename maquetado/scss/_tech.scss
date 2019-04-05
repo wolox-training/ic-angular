@@ -1,30 +1,11 @@
 .tech-card {
   align-items: center;
-  background-color: $green;
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
   margin: 15px;
   padding: 20px 30px;
   position: relative;
   width: $tech-card-size;
-
-  &::before {
-    border: 1px solid $green;
-    border-radius: inherit;
-    content: '';
-    height: 100%;
-    left: -10px;
-    position: absolute;
-    top: -10px;
-    transition: transform .2s;
-    width: 100%;
-    z-index: -1;
-  }
-
-  &:hover::before {
-    transform: translate(20px, 20px);
-  }
 
   &-logo {
     height: $tech-card-icon-size;
@@ -48,8 +29,23 @@
 }
 
 .tech-card-container {
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
+  grid-template: [top-limit] auto auto [bottom-limit]/ max-content max-content max-content;
+  justify-content: center;
   margin: 0 auto 80px;
   width: 90%;
+}
+
+
+.tech-card.tech-card-main {
+  justify-content: center;
+  grid-row: top-limit / bottom-limit;
+
+  &::before {
+    border: 1px solid $green;
+    content: '';
+    height: 100%;
+    right: 0;
+    position: absolute;
+  }
 }
