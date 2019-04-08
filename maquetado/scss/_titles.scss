@@ -1,11 +1,11 @@
 .title {
   color: $black;
+  display: block;
   font-size: $text-big;
   height: $title-decoration-height;
   margin-bottom: 30px;
   padding: 40px 55px;
   position: relative;
-  width: 100%;
 
   &::before {
     background-image: url(#{$assets_path}/triangle.svg);
@@ -17,5 +17,11 @@
     top: 0;
     width: $tech-logo-size;
     z-index: -1;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .title {
+    margin: 0 30px 30px;
   }
 }
