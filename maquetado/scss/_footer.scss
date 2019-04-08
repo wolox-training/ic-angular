@@ -24,3 +24,22 @@
     margin: 20px 0;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .footer {
+    &-copyright {
+      align-self: center;
+      font-size: 8px;
+    }
+
+    &-logo {
+      margin-bottom: 30px;
+      width: 200px;
+    }
+
+    &-slogan {
+      font-size: 12px;
+      margin: 20px 0 10px;
+    }
+  }
+}

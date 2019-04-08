@@ -20,3 +20,9 @@
     font-size: $text-big;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .nav-bar-brand {
+    display: none;
+  }
+}

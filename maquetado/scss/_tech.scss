@@ -9,7 +9,7 @@
 
   &:first-child {
     justify-content: center;
-    grid-row: 1 / span 9999;
+    grid-row: 1 / span 2;
 
     &::before {
       border: 1px solid $green;
@@ -47,4 +47,26 @@
   justify-content: center;
   margin: 0 auto 80px;
   width: 90%;
+}
+
+@media only screen and (max-width: 1024px) {
+  .tech-card {
+    border-bottom: 2px solid $green;
+
+    &:first-child {
+      grid-row: auto;
+
+      &::before {
+        content: none;
+      }
+    }
+
+    &:last-child {
+      border: none;
+    }
+  }
+
+  .tech-card-container {
+    grid-template-columns: max-content;
+  }  
 }
