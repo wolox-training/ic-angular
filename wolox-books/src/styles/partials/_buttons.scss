@@ -1,0 +1,46 @@
+@import '../abstracts/colors';
+
+.button {
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 18px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.button-block {
+  width: 100%;
+}
+
+.button-green {
+  background-color: $green;
+  color: $white;
+
+  &:hover {
+    background-color: darken($green, 5%);
+  }
+
+  &:focus {
+    background-color: darken($green, 10%);
+  }
+}
+
+%button-outline {
+  border: 2px solid;
+}
+
+.button-outline-green {
+  @extend %button-outline;
+  border-color: $green;
+  color: $green;
+
+  &:hover {
+    border-color: darken($green, 5%);
+    color: darken($green, 5%);
+  }
+
+  &:focus {
+    border-color: darken($green, 10%);
+    color: darken($green, 10%);
+  }
+}

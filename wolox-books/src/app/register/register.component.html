@@ -1,0 +1,35 @@
+<div class="register-box">
+  <img class="register-box-logo" src="../../assets/wolox_logo.svg" alt="Wolox Logo">
+  <span class="register-box-txt"> BOOKS </span>
+  <div class="register-box-form">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+      <div class="form-group">
+        <label class="form-label" for="firstName"> First name </label>
+        <input class="form-input" type="text" formControlName="firstName">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="lastName"> Last name </label>
+        <input class="form-input" type="text" formControlName="lastName">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="email"> Email </label>
+        <input class="form-input" type="text" formControlName="email">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="password"> Password </label>
+        <input class="form-input" type="password" formControlName="password">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="passwordConfirmation"> Confirm Password </label>
+        <input class="form-input" type="password" formControlName="passwordConfirmation">
+      </div>
+
+      <input class="button button-block button-green" type="submit" value="Sign Up">
+    </form>
+  </div>
+  <button class="button button-block button-outline-green" type="button">Login</button>
+</div>
