@@ -10,12 +10,12 @@ import { PasswordValidator } from '@commons/password.validator';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   localeOptions = { en: 'en' };
+ s
+  constructor(private formBuilder: FormBuilder) {}
 
-  constructor(private formBuilder: FormBuilder) {
+  ngOnInit() {
     this.initForm();
   }
-
-  ngOnInit() { }
 
   initForm() {
     this.registerForm = this.formBuilder.group({
@@ -32,8 +32,6 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(formData) {
     if (!this.registerForm.valid) {
-      console.error('Invalid Form');
-
       Object.keys(this.registerForm.controls).forEach(key => {
         const controlErrors: ValidationErrors = this.registerForm.get(key).errors;
         if (controlErrors != null) {
@@ -42,10 +40,8 @@ export class RegisterComponent implements OnInit {
           });
         }
       });
-
-      return;
+      return false;
     }
-
     console.log({
       User: {
         email: formData.email,
