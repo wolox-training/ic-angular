@@ -19,8 +19,8 @@
       "dom"
     ],
     "paths": {
-      "@app/*": ["app/*"],
-      "@commons/*": ["app/commons/*"]
+      "@screens/*": ["app/screens/*"],
+      "@validators/*": ["validators/*"]
     }
   }
 }
