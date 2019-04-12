@@ -19,7 +19,11 @@
       "dom"
     ],
     "paths": {
+      "@commons/*": ["commons/*"],
+      "@configs/*": ["configs/*"],
+      "@models/*": ["models/*"],
       "@screens/*": ["app/screens/*"],
+      "@services/*": ["services/*"],
       "@validators/*": ["validators/*"]
     }
   }

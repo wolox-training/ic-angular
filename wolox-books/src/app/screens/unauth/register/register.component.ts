@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ValidationErrors } from '@angular/forms';
 import { PasswordValidator } from '@validators/password.validator';
+import { User } from '@models/user.model';
+import { UserService } from '@services/user.service';
+import Utils from '@commons/utils';
 
 @Component({
   selector: 'app-register',
@@ -8,10 +11,10 @@ import { PasswordValidator } from '@validators/password.validator';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  registerForm: FormGroup;
   localeOptions = { en: 'en' };
- s
-  constructor(private formBuilder: FormBuilder) {}
+  registerForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder, private userService: UserService) { }
 
   ngOnInit() {
     this.initForm();
@@ -19,18 +22,18 @@ export class RegisterComponent implements OnInit {
 
   initForm() {
     this.registerForm = this.formBuilder.group({
-      email: ['', Validators.compose([Validators.required, Validators.email])],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      email: [null, Validators.compose([Validators.required, Validators.email])],
+      firstName: [null, Validators.required],
+      lastName: [null, Validators.required],
       locale: [this.localeOptions.en, Validators.required],
-      password: ['', Validators.required],
-      passwordConfirmation: ['', Validators.required]
+      password: [null, Validators.required],
+      passwordConfirmation: [null, Validators.required]
     }, {
-      validator: PasswordValidator.MatchPassword
-    });
+        validator: PasswordValidator.MatchPassword
+      });
   }
 
-  onSubmit(formData) {
+  onSubmit() {
     if (!this.registerForm.valid) {
       Object.keys(this.registerForm.controls).forEach(key => {
         const controlErrors: ValidationErrors = this.registerForm.get(key).errors;
@@ -42,15 +45,9 @@ export class RegisterComponent implements OnInit {
       });
       return false;
     }
-    console.log({
-      User: {
-        email: formData.email,
-        first_name: formData.firstName,
-        last_name: formData.lastName,
-        locale: formData.locale,
-        password: formData.password,
-        password_confirmation: formData.passwordConfirmation
-      }
+    const data = new User(this.registerForm.value);
+    Utils.callService(this.userService.createUser(data), (response) => {
+      console.log('response => ', response);
     });
   }
 }
