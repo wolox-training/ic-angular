@@ -5,7 +5,7 @@ import { RegisterComponent } from '@screens/unauth/register/register.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'sig-up', component: RegisterComponent },
+  { path: 'sign-up', component: RegisterComponent },
   {
     path: '',
     redirectTo: 'login',

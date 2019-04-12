@@ -13,6 +13,7 @@ import { UserService } from '@services/user.service';
 export class RegisterComponent implements OnInit {
   localeOptions = { en: 'en' };
   registerForm: FormGroup;
+  unauthCardButtonTxt = 'Login';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -62,11 +63,15 @@ export class RegisterComponent implements OnInit {
     this.userService.createUser(data).subscribe((response) => {
       if (response.status === 201) {
         console.log('Success');
-        this.router.navigateByUrl('/login');
+        this.goToLogin();
       }
     }, (err) => {
       console.log(`Error code: ${err.status}`);
       console.log(`Error Body: ${JSON.stringify(err.error)}`);
     });
+  }
+
+  goToLogin() {
+    this.router.navigateByUrl('/login');
   }
 }
