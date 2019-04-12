@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ValidationErrors } from '@angular/forms';
 import { PasswordValidator } from '@validators/password.validator';
-import { User } from '@models/user.model';
+import { User, UserModelSave } from '@models/user.model';
 import { UserService } from '@services/user.service';
 import Utils from '@commons/utils';
 
@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
       });
   }
 
-  onSubmit() {
+  onSubmit(formData) {
     if (!this.registerForm.valid) {
       Object.keys(this.registerForm.controls).forEach(key => {
         const controlErrors: ValidationErrors = this.registerForm.get(key).errors;
@@ -45,9 +45,23 @@ export class RegisterComponent implements OnInit {
       });
       return false;
     }
-    const data = new User(this.registerForm.value);
-    Utils.callService(this.userService.createUser(data), (response) => {
-      console.log('response => ', response);
+    const data: UserModelSave = {
+      user: {
+        email: formData.email,
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        locale: formData.locale,
+        password: formData.password,
+        password_confirmation: formData.passwordConfirmation,
+      }
+    };
+    this.userService.createUser(data).subscribe((response) => {
+      if (response.status === 201) {
+        console.log('Success');
+      }
+    }, (err) => {
+      console.log(`Error code: ${err.status}`);
+      console.log(`Error Body: ${JSON.stringify(err.error)}`);
     });
   }
 }

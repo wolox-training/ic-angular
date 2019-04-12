@@ -1,22 +1,30 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from '@services/api.service';
-import { APIS } from '@configs/api.configs';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from 'models/user.model';
-import Utils from '@commons/utils';
-import { ServiceResponseModel } from '@models/service-response.model';
+import { map } from 'rxjs/operators';
+import { APIS } from '@configs/api.configs';
+import { environment } from 'environments/environment';
+import { UserModelSave } from '@models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  serverBaseUrl: string = environment.serverBaseUrl;
 
-  constructor(private service: ApiService) { }
+  constructor(private httpClient: HttpClient) { }
 
   /**
    * @param model User to create
    */
-  createUser(model: User): Observable<ServiceResponseModel<any>> {
-    return this.service.post<ServiceResponseModel<any>>(APIS.users.create_user, Utils.getPropsSnakeFromCamel(model));
+  createUser(user: UserModelSave): Observable<any> {
+    const apiRrl = this.prepareUrl(APIS.users.create_user);
+    return this.httpClient.post<any>(apiRrl, user, { observe: 'response' }).pipe(
+      map((response) => response)
+    );
+  }
+
+  private prepareUrl(keyService, urlSearchParams?: URLSearchParams) {
+    return this.serverBaseUrl + keyService + (urlSearchParams ? '?' + urlSearchParams : '');
   }
 }

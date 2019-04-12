@@ -6,7 +6,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from '@screens/unauth/register/register.component';
-import { ApiService } from '@services/api.service';
 import { UserService } from '@services/user.service';
 
 @NgModule({
@@ -20,7 +19,7 @@ import { UserService } from '@services/user.service';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [ApiService, UserService],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
