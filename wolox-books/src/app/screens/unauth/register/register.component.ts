@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ValidationErrors } from '@angular/forms';
 import { PasswordValidator } from '@validators/password.validator';
+import { UserModelSave } from '@models/user.model';
+import { UserService } from '@services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -8,10 +10,10 @@ import { PasswordValidator } from '@validators/password.validator';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  registerForm: FormGroup;
   localeOptions = { en: 'en' };
- s
-  constructor(private formBuilder: FormBuilder) {}
+  registerForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder, private userService: UserService) { }
 
   ngOnInit() {
     this.initForm();
@@ -19,15 +21,15 @@ export class RegisterComponent implements OnInit {
 
   initForm() {
     this.registerForm = this.formBuilder.group({
-      email: ['', Validators.compose([Validators.required, Validators.email])],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      email: [null, Validators.compose([Validators.required, Validators.email])],
+      firstName: [null, Validators.required],
+      lastName: [null, Validators.required],
       locale: [this.localeOptions.en, Validators.required],
-      password: ['', Validators.required],
-      passwordConfirmation: ['', Validators.required]
+      password: [null, Validators.required],
+      passwordConfirmation: [null, Validators.required]
     }, {
-      validator: PasswordValidator.MatchPassword
-    });
+        validator: PasswordValidator.MatchPassword
+      });
   }
 
   onSubmit(formData) {
@@ -42,15 +44,23 @@ export class RegisterComponent implements OnInit {
       });
       return false;
     }
-    console.log({
-      User: {
+    const data: UserModelSave = {
+      user: {
         email: formData.email,
         first_name: formData.firstName,
         last_name: formData.lastName,
         locale: formData.locale,
         password: formData.password,
-        password_confirmation: formData.passwordConfirmation
+        password_confirmation: formData.passwordConfirmation,
       }
+    };
+    this.userService.createUser(data).subscribe((response) => {
+      if (response.status === 201) {
+        console.log('Success');
+      }
+    }, (err) => {
+      console.log(`Error code: ${err.status}`);
+      console.log(`Error Body: ${JSON.stringify(err.error)}`);
     });
   }
 }
