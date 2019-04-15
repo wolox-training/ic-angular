@@ -15,21 +15,14 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  /**
-   * @param model User to create
-   */
   createUser(user: UserModelSave): Observable<HttpResponse<UnauthResponse>> {
     const apiRrl = this.prepareUrl(APIS.users.create_user);
-    return this.httpClient.post<UnauthResponse>(apiRrl, user, { observe: 'response' }).pipe(
-      map((response) => response)
-    );
+    return this.httpClient.post<UnauthResponse>(apiRrl, user, { observe: 'response' });
   }
 
   login(user: LoginModel): Observable<HttpResponse<UnauthResponse>> {
     const apiRrl = this.prepareUrl(APIS.users.login);
-    return this.httpClient.post<UnauthResponse>(apiRrl, user, { observe: 'response' }).pipe(
-      map((response) => response)
-    );
+    return this.httpClient.post<UnauthResponse>(apiRrl, user, { observe: 'response' });
   }
 
   private prepareUrl(keyService, urlSearchParams?: URLSearchParams) {
