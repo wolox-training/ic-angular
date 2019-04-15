@@ -61,7 +61,6 @@ export class RegisterComponent implements OnInit {
     };
     this.userService.createUser(data).subscribe((response) => {
       if (response.status === 201) {
-        console.log('Success');
         this.router.navigateByUrl('/login');
       }
     }, (err) => {
