@@ -8,13 +8,18 @@ import { RegisterComponent } from '@screens/unauth/register/register.component';
 import { UserService } from '@services/user.service';
 import { LoginComponent } from './screens/unauth/login/login.component';
 import { UnauthCardComponent } from './screens/unauth/components/unauth-card/unauth-card.component';
+import { AuthComponent } from './screens/auth/auth.component';
+import { LocalStorageService } from '@services/local-storage.service';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    UnauthCardComponent
+    UnauthCardComponent,
+    AuthComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +27,7 @@ import { UnauthCardComponent } from './screens/unauth/components/unauth-card/una
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [UserService],
+  providers: [LocalStorageService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
