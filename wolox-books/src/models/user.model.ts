@@ -29,3 +29,10 @@ export interface UserModelSave {
     password_confirmation?: string;
   };
 }
+
+export interface LoginModel {
+  session: {
+    email: string;
+    password: string;
+  };
+}

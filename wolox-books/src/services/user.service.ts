@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { APIS } from '@configs/api.configs';
 import { environment } from 'environments/environment';
-import { UserModelSave } from '@models/user.model';
+import { UserModelSave, LoginModel } from '@models/user.model';
 import { UnauthResponse } from '@models/unauth-response.model';
 
 @Injectable({
@@ -17,6 +17,11 @@ export class UserService {
 
   createUser(user: UserModelSave): Observable<HttpResponse<UnauthResponse>> {
     const apiRrl = this.prepareUrl(APIS.users.create_user);
+    return this.httpClient.post<UnauthResponse>(apiRrl, user, { observe: 'response' });
+  }
+
+  login(user: LoginModel): Observable<HttpResponse<UnauthResponse>> {
+    const apiRrl = this.prepareUrl(APIS.users.login);
     return this.httpClient.post<UnauthResponse>(apiRrl, user, { observe: 'response' });
   }
 
