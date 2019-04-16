@@ -7,14 +7,12 @@ import { Router } from '@angular/router';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss']
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent {
 
   constructor(
     private localStorage: LocalStorageService,
     private router: Router
   ) { }
-
-  ngOnInit() { }
 
   onLogout() {
     this.localStorage.removeValue(this.localStorage.SESSION_TOKEN);
