@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ValidationErrors } from '@angular/forms';
 import { PasswordValidator } from '@validators/password.validator';
 import { UserModelSave } from '@models/user.model';
@@ -13,7 +14,11 @@ export class RegisterComponent implements OnInit {
   localeOptions = { en: 'en' };
   registerForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private userService: UserService
+  ) { }
 
   ngOnInit() {
     this.initForm();
@@ -56,7 +61,7 @@ export class RegisterComponent implements OnInit {
     };
     this.userService.createUser(data).subscribe((response) => {
       if (response.status === 201) {
-        console.log('Success');
+        this.router.navigateByUrl('/login');
       }
     }, (err) => {
       console.log(`Error code: ${err.status}`);
