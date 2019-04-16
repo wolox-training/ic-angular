@@ -5,13 +5,11 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
   templateUrl: './unauth-card.component.html',
   styleUrls: ['./unauth-card.component.scss']
 })
-export class UnauthCardComponent implements OnInit {
+export class UnauthCardComponent {
   @Input() buttonText = 'Button';
   @Output() onButtonClick: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
-
-  ngOnInit() { }
 
   emitEvent() {
     this.onButtonClick.emit();
