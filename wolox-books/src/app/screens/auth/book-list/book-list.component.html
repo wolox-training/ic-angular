@@ -1,6 +1,5 @@
-<app-nav-bar></app-nav-bar>
 <div class="book-list-container">
   <ng-container *ngFor="let book of bookList">
-    <app-book-card [book]="book"></app-book-card>
+    <app-book-card [book]="book" (click)="onBookCardClick(book.id)"></app-book-card>
   </ng-container>
 </div>

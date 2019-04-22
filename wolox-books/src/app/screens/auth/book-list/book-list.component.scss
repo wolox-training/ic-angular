@@ -1,11 +1,8 @@
 @import '~styles/abstracts/colors';
 
 .book-list-container {
-  background-color: $light-gray;
   display: grid;
   grid-gap: 40px;
   grid-template-columns: repeat(4, max-content);
   justify-content: center;
-  padding: 80px 0;
-  margin: 60px auto 0;
 }

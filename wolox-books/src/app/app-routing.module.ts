@@ -5,12 +5,19 @@ import { RegisterComponent } from '@screens/unauth/register/register.component';
 import { BookListComponent } from '@screens/auth/book-list/book-list.component';
 import { AuthGuard } from 'guards/auth.guard';
 import { UnauthGuard } from 'guards/unauth.guards';
+import { AuthComponent } from '@screens/auth/auth.component';
 
 const routes: Routes = [
   {
     path: 'books',
-    component: BookListComponent,
-    canActivate: [AuthGuard]
+    component: AuthComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: '',
+        component: BookListComponent
+      },
+    ]
   },
   {
     path: 'login',
