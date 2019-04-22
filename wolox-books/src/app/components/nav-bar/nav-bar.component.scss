@@ -35,14 +35,14 @@
   &-account {
     height: 100%;
     overflow: hidden;
+  }
 
-    li > a {
-      text-align: center;
-      padding: 20px 15px;
+  &-item > &-link {
+    padding: 20px 15px;
+    text-align: center;
 
-      &:hover {
-        background-color: $light-gray;
-      }
+    &:hover {
+      background-color: $light-gray;
     }
   }
 }

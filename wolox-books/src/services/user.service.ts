@@ -5,6 +5,7 @@ import { APIS } from '@configs/api.configs';
 import { environment } from 'environments/environment';
 import { UserModelSave, LoginModel } from '@models/user.model';
 import { UnauthResponse } from '@models/unauth-response.model';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ import { UnauthResponse } from '@models/unauth-response.model';
 export class UserService {
   serverBaseUrl: string = environment.serverBaseUrl;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private localStorageService: LocalStorageService) { }
 
   createUser(user: UserModelSave): Observable<HttpResponse<UnauthResponse>> {
     const apiRrl = this.prepareUrl(APIS.users.create_user);
@@ -22,6 +23,10 @@ export class UserService {
   login(user: LoginModel): Observable<HttpResponse<UnauthResponse>> {
     const apiRrl = this.prepareUrl(APIS.users.login);
     return this.httpClient.post<UnauthResponse>(apiRrl, user, { observe: 'response' });
+  }
+
+  isLogged() {
+    return !!this.localStorageService.getValue(this.localStorageService.SESSION_TOKEN);
   }
 
   private prepareUrl(keyService, urlSearchParams?: URLSearchParams) {
