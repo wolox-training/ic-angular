@@ -12,8 +12,7 @@ export class BookListComponent implements OnInit {
   bookList: Book[] = [];
 
   constructor(
-    private bookService: BookService,
-    private router: Router
+    private bookService: BookService
   ) { }
 
   ngOnInit() {
@@ -28,9 +27,5 @@ export class BookListComponent implements OnInit {
         });
       }
     });
-  }
-
-  onBookCardClick(id) {
-    this.router.navigateByUrl(`books/${id}`);
   }
 }
