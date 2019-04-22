@@ -26,7 +26,7 @@ export class UserService {
   }
 
   isLogged() {
-    return (this.localStorageService.getValue(this.localStorageService.SESSION_TOKEN)) ? true : false;
+    return !!this.localStorageService.getValue(this.localStorageService.SESSION_TOKEN);
   }
 
   private prepareUrl(keyService, urlSearchParams?: URLSearchParams) {
