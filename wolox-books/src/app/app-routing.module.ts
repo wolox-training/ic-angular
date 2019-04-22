@@ -10,17 +10,17 @@ const routes: Routes = [
   {
     path: 'books',
     component: BookListComponent,
-    canActivate: [ AuthGuard ]
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
     component: LoginComponent,
-    canActivate: [ UnauthGuard ]
+    canActivate: [UnauthGuard]
   },
   {
     path: 'sign-up',
     component: RegisterComponent,
-    canActivate: [ UnauthGuard ]
+    canActivate: [UnauthGuard]
   },
   {
     path: '',
@@ -29,8 +29,8 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'login',
-  },
+    redirectTo: 'login'
+  }
 ];
 
 @NgModule({
