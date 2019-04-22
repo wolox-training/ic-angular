@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BookListComponent } from './screens/auth/book-list/book-list.component';
 import { AuthGuard } from 'guards/auth.guard';
 import { UnauthGuard } from 'guards/unauth.guards';
+import { TokenInterceptorService } from '@services/token-interceptor.service';
+import { BookService } from '@services/book.service';
+import { BookCardComponent } from './screens/auth/components/book-card/book-card.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,8 @@ import { UnauthGuard } from 'guards/unauth.guards';
     LoginComponent,
     UnauthCardComponent,
     NavBarComponent,
-    BookListComponent
+    BookListComponent,
+    BookCardComponent
   ],
   imports: [
     BrowserModule,
@@ -31,9 +35,16 @@ import { UnauthGuard } from 'guards/unauth.guards';
   ],
   providers: [
     AuthGuard,
+    BookService,
     LocalStorageService,
+    TokenInterceptorService,
     UnauthGuard,
-    UserService
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
