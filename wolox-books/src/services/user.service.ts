@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { APIS } from '@configs/api.configs';
 import { environment } from 'environments/environment';
 import { UserModelSave, LoginModel } from '@models/user.model';

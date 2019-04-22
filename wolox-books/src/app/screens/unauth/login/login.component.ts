@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, ValidationErrors } from '@angular/f
 import { Router } from '@angular/router';
 import { UserService } from '@services/user.service';
 import { LoginModel } from '@models/user.model';
+import { LocalStorageService } from '@services/local-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private localStorage: LocalStorageService,
     private router: Router,
     private userService: UserService
   ) { }
@@ -50,7 +52,8 @@ export class LoginComponent implements OnInit {
     };
     this.userService.login(data).subscribe((response) => {
       if (response.status === 200) {
-        console.log('access_token => ', response.body.access_token);
+        this.localStorage.setValue(this.localStorage.SESSION_TOKEN, response.body.access_token);
+        this.router.navigateByUrl('/auth');
       }
     }, (err) => {
       console.log(`Error code: ${err.status}`);
