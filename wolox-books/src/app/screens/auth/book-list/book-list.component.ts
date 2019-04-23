@@ -22,9 +22,7 @@ export class BookListComponent implements OnInit {
   getBooks() {
     this.bookService.getBooks().subscribe(response => {
       if (response.status === 200) {
-        response.body.forEach((book: BookResponse) => {
-          this.bookList.push(new Book(book));
-        });
+        this.bookList = response.body;
       }
     });
   }
