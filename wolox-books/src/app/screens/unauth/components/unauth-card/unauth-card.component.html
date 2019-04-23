@@ -4,5 +4,5 @@
   <div class="unauth-box-form">
     <ng-content></ng-content>
   </div>
-  <button class="button button-block button-outline-green" type="button" (click)="emitEvent()">{{ buttonText }}</button>
+  <button class="button button-block button-outline-green" type="button" (click)="emitEvent()" i18n>{ buttonText, select, Sign Up {Sign Up} Login {Login} }</button>
 </div>
