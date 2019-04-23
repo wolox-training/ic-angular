@@ -1,5 +1,5 @@
 <div class="book-detail" *ngIf="book">
-  <img *ngIf="book.imageUrl; else noImage" class="book-detail-img" [src]="book.imageUrl" alt="Book Image">
+  <img *ngIf="book.image_url; else noImage" class="book-detail-img" [src]="book.image_url" alt="Book Image">
   <ng-template #noImage>
     <div class="no-image-container">
       <span class="no-image">No Image Available</span>
