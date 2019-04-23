@@ -3,7 +3,7 @@ export class Book {
   description: string;
   id: number;
   genre: string;
-  imageUrl: string;
+  image_url: string;
   publisher: string;
   title: string;
   year: number;
@@ -14,7 +14,7 @@ export class Book {
     this.description = book.description || null;
     this.id = book.id || null;
     this.genre = book.genre || null;
-    this.imageUrl = book.image_url || null;
+    this.image_url = book.image_url || null;
     this.publisher = book.publisher || null;
     this.title = book.title || null;
     this.year = book.year || null;
