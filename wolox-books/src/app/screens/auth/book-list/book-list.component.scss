@@ -1,0 +1,8 @@
+@import '~styles/abstracts/colors';
+
+.book-list-container {
+  display: grid;
+  grid-gap: 40px;
+  grid-template-columns: repeat(4, max-content);
+  justify-content: center;
+}

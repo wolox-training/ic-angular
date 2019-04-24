@@ -25,8 +25,12 @@ export class UserService {
     return this.httpClient.post<UnauthResponse>(apiRrl, user, { observe: 'response' });
   }
 
-  isLogged() {
-    return !!this.localStorageService.getValue(this.localStorageService.SESSION_TOKEN);
+  getToken() {
+    return this.localStorageService.getValue(this.localStorageService.SESSION_TOKEN);
+  }
+
+  isLogged(): boolean {
+    return !!this.getToken();
   }
 
   private prepareUrl(keyService, urlSearchParams?: URLSearchParams) {
