@@ -1,5 +1,5 @@
 <div class="book-list-container">
-  <ng-container *ngFor="let book of bookList">
+  <a [routerLink]="[book.id]" *ngFor="let book of bookList">
     <app-book-card [book]="book"></app-book-card>
-  </ng-container>
+  </a>
 </div>
