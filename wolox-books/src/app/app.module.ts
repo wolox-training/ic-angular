@@ -17,6 +17,7 @@ import { TokenInterceptorService } from '@services/token-interceptor.service';
 import { BookService } from '@services/book.service';
 import { BookCardComponent } from '@screens/auth/components/book-card/book-card.component';
 import { AuthComponent } from '@screens/auth/auth.component';
+import { BookDetailComponent } from './screens/auth/book-detail/book-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AuthComponent } from '@screens/auth/auth.component';
     NavBarComponent,
     BookListComponent,
     BookCardComponent,
-    AuthComponent
+    AuthComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule,

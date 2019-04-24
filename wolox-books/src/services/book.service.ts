@@ -11,6 +11,11 @@ export class BookService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getBook(id): Observable<HttpResponse<BookResponse[]>> {
+    const apiUrl = this.prepareUrl(APIS.books.list);
+    return this.httpClient.get<BookResponse[]>(`${apiUrl}/${id}`, { observe: 'response' });
+  }
+
   getBooks(params?): Observable<HttpResponse<BookResponse[]>> {
     const apiUrl = this.prepareUrl(APIS.books.list);
     return this.httpClient.get<BookResponse[]>(apiUrl, { observe: 'response' });
