@@ -2,7 +2,7 @@
   <div class="book-card-container-img">
     <img *ngIf="book.image_url; else noImage" class="book-card-img" [src]="book.image_url || ''" alt="Book Image">
     <ng-template #noImage>
-      <span class="no-image">No Image Available</span>
+      <span class="no-image" i18n>No Image Available</span>
     </ng-template>
   </div>
   <h3 class="book-card-title">{{ book.title }}</h3>
