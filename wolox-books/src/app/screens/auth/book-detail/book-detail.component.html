@@ -2,19 +2,19 @@
   <img *ngIf="book.image_url; else noImage" class="book-detail-img" [src]="book.image_url" alt="Book Image">
   <ng-template #noImage>
     <div class="no-image-container">
-      <span class="no-image">No Image Available</span>
+      <span class="no-image" i18n>No Image Available</span>
     </div>
   </ng-template>
   <div class="book-detail-info">
     <h1 class="book-detail-title">{{ book.title }} <span class="book-detail-genre">({{ book.genre }})</span></h1>
     <div class="book-detail-field">
-      <span class="book-detail-field-label">Book author:</span> {{ book.author }}
+      <span class="book-detail-field-label" i18n>Book author:</span> {{ book.author }}
     </div>
     <div class="book-detail-field">
-      <span class="book-detail-field-label">Publisher:</span> {{ book.publisher }}
+      <span class="book-detail-field-label" i18n>Publisher:</span> {{ book.publisher }}
     </div>
     <div class="book-detail-field">
-      <span class="book-detail-field-label">Year of publication:</span> {{ book.year }}
+      <span class="book-detail-field-label" i18n>Year of publication:</span> {{ book.year }}
     </div>
   </div>
 </div>
